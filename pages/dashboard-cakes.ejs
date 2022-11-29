@@ -1,0 +1,89 @@
+
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dashboard-page-head">
+                    <div class="page-header">
+                        <h1>Cakes Enquiries</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-listing-dashboard">
+                <table class="table">
+                    <theader class="table-head">
+                        <tr>
+                            <th>
+                                <div><span class="th-title">First Name</span></div>
+                            </th>
+                            <th>
+                                <div><span class="th-title">Lastname</span></div>
+                            </th>
+                            <th>
+                                <div><span class="th-title">Mobile</span></div>
+                            </th>
+                            <th>
+                                <div><span class="th-title">Status</span></div>
+                            </th>
+                            <th>
+                                <div><span class="th-title">Description</span></div>
+                            </th>
+                            <th>
+                                <div><span class="th-title">Action</span></div>
+                            </th>
+                        </tr>
+                    </theader>
+                    <tbody>
+                        <% for(var enquiry of enquiries ){ %>
+                            <tr>
+                                <td>
+                                    <%= enquiry.firstname%>
+                                </td>
+                                <td><%= enquiry.lastname%></td>
+                                <td><%= enquiry.mobile%></td>
+                                <td><%= enquiry.status%></td>
+                                <td><%= enquiry.description%></td>
+                                <td>
+                                    <div class="col-md-2 listing-action">
+                                        <a href="/enquiry/<%=enquiry._id%>" class="btn btn-primary  btn-xs">Respond</a> 
+                                    </div>
+                                </td>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+                <div class="table-head">
+                    <div class="row">
+                        <div class="col-md-2"><span class="th-title">First Name</span></div>
+                        <div class="col-md-3"><span class="th-title">Last Name</span></div>
+                        <div class="col-md-3"><span class="th-title">Mobile Number</span></div>
+                        <div class="col-md-3"><span class="th-title">Status</span></div>
+                        <div class="col-md-2"><span class="th-title">Description</span></div>
+                        <div class="col-md-2"><span class="th-title">Action</span></div>
+                    </div>
+                </div>
+                <% for(var enquiry of enquiries ){ %>
+                <div class="listing-row">
+                    <!-- listing row -->
+                    <div class="row">
+                        <div class="col-md-2 listing-thumb"><%= enquiry.firstname%></div>
+                        <div class="col-md-3 listing-title">
+                            <h2><%= enquiry.lastname%></h2> 
+                        </div>
+                        <div class="col-md-3 listing-address"><%= enquiry.mobile%></div>
+                        <div class="col-md-3 listing-address"><%= enquiry.status%></div>
+                        <div class="col-md-2 listing-price"><%= enquiry.description%></div>
+                        <div class="col-md-2 listing-action">
+                            <a href="/enquiry/<%=enquiry._id%>" class="btn btn-primary  btn-xs">Respond</a> 
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>

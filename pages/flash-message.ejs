@@ -1,0 +1,20 @@
+<% if(success != ''){%>>
+    <script>
+        const msg = '<%= success%>'.split(' ').slice(1).join(' ');
+        alert(msg);
+    </script>
+<%}%>
+
+<% if(warning != ''){%>>
+<script>
+    const msg = '<%= warning%>'.split(' ').slice(1).join(' ');
+    alert(msg);
+</script>
+<%}%>
+
+<% if(error != ''){%>>
+<script>
+    const msg = '<%= error%>'.split(' ').slice(1).join(' ');
+    alert(msg);
+</script>
+<%}%>

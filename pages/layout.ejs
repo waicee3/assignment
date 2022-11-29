@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Are you local weddding vendor provider & looking for wedding vendor website template. Wedding Vendor Responsive Website Template suitable for wedding vendor supplier, wedding agency, wedding company, wedding events etc.. ">
+    <meta name="keywords" content="Wedding Vendor, wedding template, wedding website template, events, wedding party, wedding cake, wedding dress, wedding couple, couple, Wedding Venues Website Template">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Home</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/test.css" rel="stylesheet">
+    <!-- Template style.css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+    <!-- Font used in template -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,500,500italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!--font awesome icon -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- favicon icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <% if(!req.isAuthenticated()){%>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 logo">
+                    <div class="navbar-brand">
+                        <a href="/"><img src="images/logo.png" alt="Wedding Vendors" class="img-responsive"></a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-12">
+                    <div class="navigation" id="navigation">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li class="active"><a href="/about-us">About Us</a></li>
+                            <li class="active"><a href="#">Suppliers</a>
+                                <ul>
+                                    <li><a href="/cake-listing">Cakes</a></li>
+                                    <li><a href="/dresses-listing">Wedding Dresses</a></li>
+                                    <li><a href="/florist-listing">Flowers</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="/contact-us">Contact Us</a></li>
+                            <li class="active"><a href="/sign-in">Login</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-body%>
+    <div class="footer">
+        <!-- Footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 ft-aboutus">
+                    <h2>Rudo Rwedu</h2>
+                    <p>At Wedding Vendor our purpose is to help people find great online network connecting wedding suppliers and wedding couples who use those suppliers. <a href="#">Start Find Service!</a></p>
+                    <a href="#" class="btn btn-default">Request a Service</a> </div>
+                <div class="col-md-3 ft-link">
+                    <h2>Useful links</h2>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 newsletter">
+                    <div class="social-icon">
+                        <h2>Be Social &amp; Stay Connected</h2>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%} else{%>
+        <div class="tp-dashboard-head">
+            <!-- page header -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 profile-header">
+                        <div class="profile-pic col-md-2"><img src="images/profile-dashbaord.png" alt=""></div>
+                        <div class="profile-info col-md-9">
+                            <h1 class="profile-title">Welcome Admin</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.page header -->
+        <div class="tp-dashboard-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 dashboard-nav">
+                        <ul class="nav nav-pills nav-justified">
+                            <!-- <li><a href=""><i class="fa fa-dashboard db-icon"></i>My Dashboard</a></li> -->
+                            <li <%if(active ==='cakes'){%> class="active"<%}%>><a href="/dashboard-cakes"><i class="fa fa-cake db-icon"></i>Cakes</a></li>
+                            <li <%if(active ==='dresses'){%> class="active"<%}%>><a href="/dashboard-dresses"><i class="fa fa-female db-icon"></i>Wedding Dresses </a></li>
+                            <li <%if(active ==='flowers'){%> class="active"<%}%>><a href="/dashboard-flowers"><i class="fa fa-flower db-icon"></i>Flowers</a></li>
+                            <li><a href="/logout"><i class="fa fa-lock db-icon"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-body%>
+    <%}%>
+    <!-- /.Footer -->
+    <div class="tiny-footer">
+        <!-- Tiny footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">Copyright © 2017. All Rights Reserved</div>
+            </div>
+        </div>
+    </div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Flex Nav Script -->
+<script src="js/jquery.flexnav.js" type="text/javascript"></script>
+<script src="js/navigation.js"></script>
+<!-- slider -->
+<script src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<!-- testimonial -->
+<script type="text/javascript" src="js/testimonial.js"></script>
+<!-- sticky header -->
+<script src="js/jquery.sticky.js"></script>
+<script src="js/header-sticky.js"></script>
+<%- include('./flash-message')%>
+</body>
+
+<div class="modal fade" id="enquiry">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Enquiry</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/enquiry" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-lable">Firstname</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="firstname" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-lable">Lastname</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="lastname" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-lable">Mobile</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="mobile" required>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="service">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-lable">Equiry</label>
+                                <div class="col-sm-10">
+                                    <textarea name="description" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-close"></i>Close
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-send"></i>Send
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addEnquiry(enquiry){
+        const modal = $('div#enquiry');
+        modal.find($('input[name="service"]')).val(enquiry);
+        modal.modal('show');
+    }
+</script>
+</html>
