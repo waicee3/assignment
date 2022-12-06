@@ -33,7 +33,8 @@
     "soft-delete-plugin-mongoose": "^1.0.15"
   },
   "scripts": {
-    "test": "test.js"
+    "test": "test.js",
+    "start": "node app.js"
   },
   "author": "yolanda chibaya",
   "license": "ISC"
