@@ -83,20 +83,26 @@ router.get('/dashboard-flowers',auth,(req,res)=>{
 router.post('/enquiry',(req,res)=>{
     try{
         
-        Enquiry.find({$and:[{mobile : req.body.mobile}, {service: req.body.service}]},(err, enquiry)=>{
-            if(err) throw err;
-            if(enquiry.length != 0){
-                req.flash('error','Enquiry already sent');
-                res.redirect('/');
-            }
-            else{
-                Enquiry.createEnquiry(new Enquiry(req.body),(err)=>{
-                    if(err) throw err;
-                    req.flash('success','Enquiry successfully sent');
+        if(validatePhoneNumber(req.body.mobile)){
+        
+            Enquiry.find({$and:[{mobile : req.body.mobile}, {service: req.body.service}]},(err, enquiry)=>{
+                if(err) throw err;
+                if(enquiry.length != 0){
+                    req.flash('error','Enquiry already sent');
                     res.redirect('/');
-                });
-            }
-        })
+                }
+                else{
+                    Enquiry.createEnquiry(new Enquiry(req.body),(err)=>{
+                        if(err) throw err;
+                        req.flash('success','Enquiry successfully sent');
+                        res.redirect('/');
+                    });
+                }
+            })
+        }else{
+            res.flash('error','Invalid mobile number');
+            res.redirect('/');
+        }
     }catch (e) {
         req.flash('error','An error occured');
         res.redirect('/');
@@ -139,6 +145,24 @@ router.get('/logout',(req,res)=>{
         res.render('./login');
     });
 });
+
+function validatePhoneNumber(number) {
+  var econetNumber = /^((\+|00)?263|0)?7(7|8)\d{7}$/;
+    var netoneNumber = /^((\+|00)?263|0)?71\d{7}$/;
+    var telecelNumber = /^((\+|00)?263|0)?73\d{7}$/;
+    
+    if(econetNumber.test(number)){
+        return true;
+    }else if(netoneNumber.test(number)){
+        return true;
+    }else if(telecelNumber.test(number)){
+        return true;
+    }else{
+        return false
+    }
+
+//   return re.test(input_str);
+}
 
 
 module.exports=router
