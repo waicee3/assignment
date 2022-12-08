@@ -104,7 +104,7 @@ router.post('/enquiry',(req,res)=>{
             res.redirect('/');
         }
     }catch (e) {
-        req.flash('error','An error occured');
+        req.flash('error',/*'An error occured'*/e);
         res.redirect('/');
     }
 });
