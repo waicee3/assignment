@@ -11,8 +11,6 @@ const enquirySchema = mongoose.Schema({
         },
         mobile:{
             type: String,
-            trim: true,
-            unique: true
         },
         service:{
             type: String,
@@ -20,6 +18,10 @@ const enquirySchema = mongoose.Schema({
         },
         status:{
             type: String
+        },
+        response:{
+            type: String,
+            trim : true
         },
         description:{
             type: String,
