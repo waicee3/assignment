@@ -52,6 +52,7 @@
                                 </ul>
                             </li>
                             <li class="active"><a href="/contact-us">Contact Us</a></li>
+                            <li class="active"><a href="#" data-toggle="modal" data-target="#check-myqueries">Check My Query</a></li>
                             <li class="active"><a href="/sign-in">Login</a></li>
                         </ul>
                     </div>
@@ -208,10 +209,80 @@
     </div>
 </div>
 
+<div class="modal fade" id="check-myqueries">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Check My queries</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/check-queries" method="get">
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-lable">Mobile number</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="mobile" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-close"></i>Close
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-send"></i>Get My queries
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="response">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Response</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/enquiry_update" method="post">
+                <div class="modal-body">
+                    <input type="hidden" name="id">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-lable">Message</label>
+                        <div class="col-sm-10">
+                            <textarea name="response" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-close"></i>Close
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-send"></i>Respond
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     function addEnquiry(enquiry){
         const modal = $('div#enquiry');
         modal.find($('input[name="service"]')).val(enquiry);
+        modal.modal('show');
+    }
+
+    function addResponse(id, name){
+        const modal = $('div#response');
+        modal.find($('input[name="id"]')).val(id);
+        modal.find($('h4.modal-title')).text('Respond to ' + name)
         modal.modal('show');
     }
 </script>

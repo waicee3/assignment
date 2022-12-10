@@ -1,0 +1,55 @@
+
+    <!-- page header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Queris for <%=req.query.mobile%></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="container">
+        <table class="table">
+            <theader class="table-head">
+                <tr>
+                    <th>
+                        <div><span class="th-title">First Name</span></div>
+                    </th>
+                    <th>
+                        <div><span class="th-title">Lastname</span></div>
+                    </th>
+                    <th>
+                        <div><span class="th-title">Mobile</span></div>
+                    </th>
+                    <th>
+                        <div><span class="th-title">Status</span></div>
+                    </th>
+                    <th>
+                        <div><span class="th-title">Query</span></div>
+                    </th>
+                    <th>
+                        <div><span class="th-title">Response</span></div>
+                    </th>
+                </tr>
+            </theader>
+            <tbody>
+                <% for(var enquiry of enquiries ){ %>
+                    <tr>
+                        <td>
+                            <%= enquiry.firstname%>
+                        </td>
+                        <td><%= enquiry.lastname%></td>
+                        <td><%= enquiry.mobile%></td>
+                        <td <% if(enquiry.status !=="Resolved"){%>style="background:red;"<%}else{%>style="background:green;"<%}%>><%= enquiry.status%></td>
+                        <td><%= enquiry.description%></td>
+                        <td>
+                            <%= enquiry.response%>                          
+                        </td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
