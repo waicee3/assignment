@@ -100,7 +100,7 @@ router.post('/enquiry',(req,res)=>{
                 }
             })
         }else{
-            res.flash('error','Invalid mobile number');
+            req.flash('error','Invalid mobile number');
             res.redirect('/');
         }
     }catch (e) {
@@ -110,13 +110,38 @@ router.post('/enquiry',(req,res)=>{
     }
 });
 
-router.get('/enquiry/:_id',auth,(req,res)=>{
+router.post('/enquiry_update',auth,(req,res)=>{
     try{
-        Enquiry.updateOne(req.params,{$set:{status : 'Resolved'}},(err, enquiry)=>{
+        Enquiry.updateOne({_id:req.body.id},{$set:{status : 'Resolved', response : req.body.response}},(err, enquiry)=>{
             if(err) throw err;
             req.flash('success',"You have responded to an enquiry");
             res.redirect(req.header('Referer'));
         });
+    }catch(e){
+        req.flash('error', 'An error occured internally');
+        res.redirect(req.header('Referer'));
+    }
+})
+
+router.get('/check-queries',(req,res)=>{
+    try{
+        if(validatePhoneNumber(req.query.mobile)){
+            Enquiry.find({mobile:req.query.mobile},(err, response)=>{
+                if(err) throw err;
+                if(response){
+                    res.render('./queries',{
+                        enquiries : response
+                    });
+                }else{
+                    req.flash('warning',"You have no queries");
+                    res.redirect(req.header('Referer'));
+                }
+            });
+        }else{
+            req.flash('error', 'Invalid mobile number');
+            res.redirect(req.header('Referer')); 
+        }
+        
     }catch(e){
         req.flash('error', 'An error occured internally');
         res.redirect(req.header('Referer'));
